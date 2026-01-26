@@ -1,0 +1,101 @@
+trainer:
+  target: trainer.TrainerFusion
+
+
+autoencoder:
+
+model:
+  target: models.unet.UNetModelSwin
+  ckpt_path: ~
+  params:
+    image_size: 256
+    in_channels: 2
+    model_channels: 160
+    out_channels: 1
+    attention_resolutions: [64, 32, 16, 8]
+    dropout: 0
+    channel_mult: [1, 1, 2, 2, 4, 4]
+    num_res_blocks: [2, 2, 2, 2, 2, 2]
+    conv_resample: True
+    dims: 2
+    use_fp16: False
+    num_head_channels: 32
+    use_scale_shift_norm: True
+    resblock_updown: False
+    swin_depth: 2
+    swin_embed_dim: 256
+    window_size: 8
+    mlp_ratio: 4
+    cond_lq: True
+    lq_size: 256
+
+diffusion:
+  target: models.script_util.create_gaussian_diffusion
+  params:
+    schedule_name: exponential
+    schedule_kwargs:
+      power: 0.3
+    etas_end: 0.99
+    steps: 4
+    min_noise_level: 0.2
+    kappa: 2.0
+    weighted_mse: False
+    predict_type: xstart
+    timestep_respacing: ~
+    scale_factor: 1.0
+    normalize_input: True
+    latent_flag: True
+
+data:
+  train:
+    type: fusion
+    params:
+      dataset_path: '/data1/XJH/Imgtrans/data/Havard/MyDatasets/prostate'
+      source_modal: 'T1'
+      target_modal: 'T2'
+      warp_modal: 'T1_warp'
+      isTrain: True
+  val:
+    type: fusion
+    params:
+      dataset_path: '/data1/XJH/Imgtrans/data/Havard/MyDatasets/prostate'
+      source_modal: 'T1'
+      target_modal: 'T2'
+      warp_modal: 'T1_warp'
+      isTrain: False
+
+train:
+  # learning rate
+  lr: 5e-5                      # learning rate
+  lr_min: 2e-5                  # learning rate
+  lr_schedule: cosin
+  warmup_iterations: 5000
+  F1_step: -1
+  # dataloader
+  batch: [2, 2]
+  microbatch: 2
+  num_workers: 8
+  prefetch_factor: 2
+  # optimization settings
+  weight_decay: 0
+  ema_rate: 0.999
+  iterations: 10000            # total iterations
+  # save logging
+  save_freq: 150
+  log_freq: [150, 150, 40]         # [training loss, training images, val images]
+  local_logging: True           # manually save images
+  tf_logging: False             # tensorboard logging
+  # validation settings
+  use_ema_val: True
+  val_freq: ${train.save_freq}
+  val_y_channel: True
+  val_resolution: ${model.params.lq_size}
+  val_padding_mode: reflect
+  # training setting
+  use_amp: False             # amp training
+  seed: 1234                 # random seed
+  global_seeding: True
+  # model compile
+  compile:
+    flag: False
+    mode: reduce-overhead      # default, reduce-overhead
