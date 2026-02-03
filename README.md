@@ -1,6 +1,6 @@
 <div align="center">
   
-<h1> ResFusion: Medical Image Fusion Driven by Implicit-Forward Diffusion and Time-aware Joint Optimization </h1>
+<h1> Medical Image Fusion Driven by Implicit-Forward Diffusion and Time-aware Joint Optimization </h1>
 
 </div>
 
