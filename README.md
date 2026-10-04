@@ -1,13 +1,13 @@
 <div align="center">
 
-<h1>Medical Image Fusion Driven by Implicit-Forward Diffusion<br>and Time-aware Joint Optimization</h1>
+<h2>Medical Image Fusion Driven by Implicit-Forward Diffusion<br>and Time-aware Joint Optimization</h2>
 
 <p><strong>ResFusion &nbsp; | &nbsp; NeurIPS 2026</strong></p>
 
 <p><img src="assets/resfusion_process.gif" alt="Initial noise, network input, fusion denoising, and denoised result" width="420"></p>
 
 [![GitHub](https://img.shields.io/badge/GitHub-ResFusion-181717?logo=github&logoColor=white)](https://github.com/medcx/ResFusion)
-[![Checkpoint](https://img.shields.io/badge/Checkpoint-BraTS-4285F4?logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1i_Qt28X4c7QUhAvQKeSkB8eOJGSOIiGa/view?usp=sharing)
+[![Checkpoint](https://img.shields.io/badge/Checkpoint-BraTs-4285F4?logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1i_Qt28X4c7QUhAvQKeSkB8eOJGSOIiGa/view?usp=sharing)
 [![Stars](https://img.shields.io/github/stars/medcx/ResFusion?style=social)](https://github.com/medcx/ResFusion)
 
 [Overview](#overview) · [Method](#method) · [Quick Start](#quick-start) · [Results](#results) · [Citation](#citation)
@@ -36,7 +36,7 @@ Run all commands from the repository root.
 
 ### 1. Prepare the checkpoint
 
-Download the [pre-trained BraTS checkpoint](https://drive.google.com/file/d/1i_Qt28X4c7QUhAvQKeSkB8eOJGSOIiGa/view?usp=sharing), rename it to **`model_best.pth`**, and place it as follows:
+Download the [ResFusion_BraTs](https://drive.google.com/file/d/1i_Qt28X4c7QUhAvQKeSkB8eOJGSOIiGa/view?usp=sharing), rename it to **`model_best.pth`**, and place it as follows:
 
 ```text
 ResFusion/
@@ -64,7 +64,7 @@ Results are saved to **`demo_results/ResFusion`** by default. To change the outp
 python test_demo.py --out_path demo_results --bs 32
 ```
 
-### 3. Train on BraTS
+### 3. Train on BraTs
 
 Update `data.train.params.dataset_path` and `data.val.params.dataset_path` in `configs/fusion_brats.yaml` to point to your local dataset. The configuration uses `t2w`, `t2f`, and `t2w_warp` as the source, target, and warped modalities.
 
