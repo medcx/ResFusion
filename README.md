@@ -25,7 +25,7 @@ ResFusion brings registration and medical image fusion into a joint framework, c
 ## Method
 
 <p align="center">
-  <a href="assets/method.pdf"><img src="assets/method.png" alt="ResFusion framework: time-aware registration, progressive registration, fusion, and iterative optimization" width="100%"></a>
+  <a href="assets/method.png"><img src="assets/method.png" alt="method" width="100%"></a>
 </p>
 
 <p align="center"><em>Overview of ResFusion. Time-aware blocks and progressive registration align the input modalities within the iterative fusion process.</em></p>
@@ -35,23 +35,15 @@ ResFusion brings registration and medical image fusion into a joint framework, c
 ### Fusion comparison
 
 <p align="center">
-  <a href="assets/fusion_comparison.pdf"><img src="assets/fusion_comparison.png" alt="Qualitative fusion comparison across six examples, with source images, competing methods, and ResFusion" width="100%"></a>
+  <a href="assets/fusion_comparison.png"><img src="assets/fusion_comparison.png" alt="fusion comparison" width="100%"></a>
 </p>
 
 <p align="center"><em>Qualitative comparison with DDFM, CCF, UMF-CMGR, SuperFusion, IMF, PAMRFuse+, and BSAFusion. Red boxes highlight local details; ResFusion is shown in the rightmost column.</em></p>
 
-### Registration comparison
-
-<p align="center">
-  <a href="assets/registration_comparison.pdf"><img src="assets/registration_comparison.png" alt="Registration comparison with reference and method intensity profiles and corresponding image slices" width="100%"></a>
-</p>
-
-<p align="center"><em>Registration results with intensity profiles along the indicated image lines. Reference profiles are shown in red and method profiles in blue.</em></p>
-
 ### Downstream segmentation
 
 <p align="center">
-  <a href="assets/segmentation_comparison.pdf"><img src="assets/segmentation_comparison.png" alt="Downstream segmentation comparison on fused images, with colored overlays and original score annotations" width="100%"></a>
+  <a href="assets/segmentation_comparison.png"><img src="assets/segmentation_comparison.png" alt="segmentation comparison" width="100%"></a>
 </p>
 
 <p align="center"><em>Segmentation visualizations on fused images. Colored overlays and score annotations are reproduced from the original figure.</em></p>
@@ -60,14 +52,14 @@ ResFusion brings registration and medical image fusion into a joint framework, c
 <summary><strong>More fusion examples</strong></summary>
 
 <p align="center">
-  <a href="assets/fusion_additional.pdf"><img src="assets/fusion_additional.png" alt="Additional qualitative fusion examples with local detail enlargements" width="100%"></a>
+  <a href="assets/fusion_additional.png"><img src="assets/fusion_additional.png" alt="fusion additional" width="100%"></a>
 </p>
 
 Additional examples using the same comparison methods. Red boxes indicate the regions enlarged for visual inspection.
 
 </details>
 
-*Figures are rendered from the original PDFs. Click a figure to open its vector PDF.*
+*Click a figure to view it at full resolution.*
 
 ## Quick Start
 
@@ -110,18 +102,6 @@ Update `data.train.params.dataset_path` and `data.val.params.dataset_path` in `c
 ```bash
 python main.py --cfg_path configs/fusion_brats.yaml --save_dir results/brats
 ```
-
-## Repository Guide
-
-| Path | Purpose |
-| :--- | :--- |
-| `assets/` | Method and result figures displayed in this README |
-| `configs/` | Model, diffusion, dataset, and training configurations |
-| `models/` | Model architectures and diffusion components |
-| `datapipe/` | Dataset and data-loading utilities |
-| `main.py` / `trainer.py` | Training entry point and training logic |
-| `test_demo.py` / `sampler.py` | Demo entry point and inference sampler |
-| `brats_preprocess.py` / `pelvis_preprocess.py` | Dataset preprocessing scripts |
 
 ## Citation
 
