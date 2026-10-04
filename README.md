@@ -1,10 +1,10 @@
 <div align="center">
 
-<h1>ResFusion <img src="assets/resfusion_process.gif" alt="Conceptual animation of adding noise, denoising, and fusion" width="420" align="middle"></h1>
-
-### Medical Image Fusion Driven by Implicit-Forward Diffusion<br>and Time-aware Joint Optimization
+<h1>Medical Image Fusion Driven by Implicit-Forward Diffusion<br>and Time-aware Joint Optimization</h1>
 
 **NeurIPS 2026**
+
+<h3>ResFusion <img src="assets/resfusion_process.gif" alt="Animation of A and B with noisy initial states, noisy overlay, and denoising to fusion" width="420" align="middle"></h3>
 
 [![GitHub](https://img.shields.io/badge/GitHub-ResFusion-181717?logo=github&logoColor=white)](https://github.com/medcx/ResFusion)
 [![Checkpoint](https://img.shields.io/badge/Checkpoint-BraTS-4285F4?logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1i_Qt28X4c7QUhAvQKeSkB8eOJGSOIiGa/view?usp=sharing)
@@ -18,7 +18,9 @@
 
 ## Overview
 
-This repository contains the official implementation of **ResFusion: Medical Image Fusion Driven by Implicit-Forward Diffusion and Time-aware Joint Optimization**, presented at **NeurIPS 2026**.
+This repository contains the official implementation of **ResFusion: Medical Image Fusion Driven by Implicit-Forward Diffusion and Time-aware Joint Optimization**, presented at **NeurIPS 2026**
+
+<h3>ResFusion <img src="assets/resfusion_process.gif" alt="Animation of A and B with noisy initial states, noisy overlay, and denoising to fusion" width="420" align="middle"></h3>.
 
 ResFusion brings registration and medical image fusion into a joint framework, combining **implicit-forward diffusion**, **time-aware registration**, and **progressive alignment**.
 
