@@ -1,6 +1,6 @@
 <div align="center">
 
-# ResFusion
+<h1>ResFusion <img src="assets/resfusion_process.gif" alt="Conceptual animation of adding noise, denoising, and fusion" width="420" align="middle"></h1>
 
 ### Medical Image Fusion Driven by Implicit-Forward Diffusion<br>and Time-aware Joint Optimization
 
@@ -10,7 +10,7 @@
 [![Checkpoint](https://img.shields.io/badge/Checkpoint-BraTS-4285F4?logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1i_Qt28X4c7QUhAvQKeSkB8eOJGSOIiGa/view?usp=sharing)
 [![Stars](https://img.shields.io/github/stars/medcx/ResFusion?style=social)](https://github.com/medcx/ResFusion)
 
-[Overview](#overview) · [Method](#method) · [Results](#results) · [Quick Start](#quick-start) · [Citation](#citation)
+[Overview](#overview) · [Method](#method) · [Quick Start](#quick-start) · [Results](#results) · [Citation](#citation)
 
 </div>
 
@@ -29,37 +29,6 @@ ResFusion brings registration and medical image fusion into a joint framework, c
 </p>
 
 <p align="center"><em>Overview of ResFusion. Time-aware blocks and progressive registration align the input modalities within the iterative fusion process.</em></p>
-
-## Results
-
-### Fusion comparison
-
-<p align="center">
-  <a href="assets/fusion_comparison.png"><img src="assets/fusion_comparison.png" alt="fusion comparison" width="100%"></a>
-</p>
-
-<p align="center"><em>Qualitative comparison with DDFM, CCF, UMF-CMGR, SuperFusion, IMF, PAMRFuse+, and BSAFusion. Red boxes highlight local details; ResFusion is shown in the rightmost column.</em></p>
-
-### Downstream segmentation
-
-<p align="center">
-  <a href="assets/segmentation_comparison.png"><img src="assets/segmentation_comparison.png" alt="segmentation comparison" width="100%"></a>
-</p>
-
-<p align="center"><em>Segmentation visualizations on fused images. Colored overlays and score annotations are reproduced from the original figure.</em></p>
-
-<details>
-<summary><strong>More fusion examples</strong></summary>
-
-<p align="center">
-  <a href="assets/fusion_additional.png"><img src="assets/fusion_additional.png" alt="fusion additional" width="100%"></a>
-</p>
-
-Additional examples using the same comparison methods. Red boxes indicate the regions enlarged for visual inspection.
-
-</details>
-
-*Click a figure to view it at full resolution.*
 
 ## Quick Start
 
@@ -102,6 +71,37 @@ Update `data.train.params.dataset_path` and `data.val.params.dataset_path` in `c
 ```bash
 python main.py --cfg_path configs/fusion_brats.yaml --save_dir results/brats
 ```
+
+## Results
+
+### Fusion comparison
+
+<p align="center">
+  <a href="assets/fusion_comparison.png"><img src="assets/fusion_comparison.png" alt="fusion comparison" width="100%"></a>
+</p>
+
+<p align="center"><em>Qualitative comparison with DDFM, CCF, UMF-CMGR, SuperFusion, IMF, PAMRFuse+, and BSAFusion. Red boxes highlight local details; ResFusion is shown in the rightmost column.</em></p>
+
+### Downstream segmentation
+
+<p align="center">
+  <a href="assets/segmentation_comparison.png"><img src="assets/segmentation_comparison.png" alt="segmentation comparison" width="100%"></a>
+</p>
+
+<p align="center"><em>Segmentation visualizations on fused images. Colored overlays and score annotations are reproduced from the original figure.</em></p>
+
+<details>
+<summary><strong>More fusion examples</strong></summary>
+
+<p align="center">
+  <a href="assets/fusion_additional.png"><img src="assets/fusion_additional.png" alt="fusion additional" width="100%"></a>
+</p>
+
+Additional examples using the same comparison methods. Red boxes indicate the regions enlarged for visual inspection.
+
+</details>
+
+*Click a figure to view it at full resolution.*
 
 ## Citation
 
