@@ -6,7 +6,7 @@
 
 <p align="center">
   💻 <a href="https://github.com/medcx/ResFusion">GitHub</a> &nbsp; | &nbsp;
-  📦 <a href="https://drive.google.com/file/d/1i_Qt28X4c7QUhAvQKeSkB8eOJGSOIiGa/view?usp=sharing">ResFusion_BraTs</a> &nbsp; | &nbsp;
+  📦 <a href="https://drive.google.com/file/d/1i_Qt28X4c7QUhAvQKeSkB8eOJGSOIiGa/view?usp=sharing">checkpoint</a> &nbsp; | &nbsp;
   🔬 <a href="#method">Method</a> &nbsp; | &nbsp;
   🚀 <a href="#quick-start">Quick Start</a> &nbsp; | &nbsp;
   📊 <a href="#results">Results</a> &nbsp; | &nbsp;
@@ -18,6 +18,10 @@
 **Medical Image Fusion Driven by Implicit-Forward Diffusion and Time-aware Joint Optimization**  
 **NeurIPS 2026**
 
+<p align="center">
+  <img src="assets/resfusion_process_v2.gif" alt="Initial noise, network input, fusion denoising, and denoised result" width="420">
+</p>
+
 ## Overview
 
 This repository contains the official implementation of **ResFusion: Medical Image Fusion Driven by Implicit-Forward Diffusion and Time-aware Joint Optimization**, presented at **NeurIPS 2026**.
@@ -25,11 +29,6 @@ This repository contains the official implementation of **ResFusion: Medical Ima
 ResFusion brings registration and medical image fusion into a joint framework, combining **implicit-forward diffusion**, **time-aware registration**, and **progressive alignment**.
 
 ## Method
-
-<p align="center">
-  <img src="assets/resfusion_process_v2.gif" alt="Initial noise, network input, fusion denoising, and denoised result" width="420">
-</p>
-
 
 <p align="center">
   <a href="assets/method.png"><img src="assets/method.png" alt="method" width="100%"></a>
@@ -64,7 +63,6 @@ The demo loads data from `MyDatasets/Demo`, as configured in `configs/demo.yaml`
 ```bash
 python test_demo.py
 ```
-
 
 ### 3. Train on BraTs
 
