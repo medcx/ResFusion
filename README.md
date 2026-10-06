@@ -2,7 +2,7 @@
 
 <h2>Medical Image Fusion Driven by Implicit-Forward Diffusion<br>and Time-aware Joint Optimization</h2>
 
-<p><strong>ResFusion &nbsp; | &nbsp; NeurIPS 2026</strong></p>
+<p><img src="assets/resfusion_logo.png" alt="ResFusion logo" width="56" height="56" align="middle"> &nbsp; <strong>ResFusion &nbsp; | &nbsp; NeurIPS 2026</strong></p>
 
 <p><img src="assets/resfusion_process.gif" alt="Initial noise, network input, fusion denoising, and denoised result" width="420"></p>
 
