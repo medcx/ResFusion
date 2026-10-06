@@ -15,18 +15,15 @@
 
 ---
 
-**Medical Image Fusion Driven by Implicit-Forward Diffusion and Time-aware Joint Optimization**  
-**NeurIPS 2026**
-
-<p align="center">
-  <img src="assets/resfusion_process_v2.gif" alt="Initial noise, network input, fusion denoising, and denoised result" width="420">
-</p>
-
-## Overview
+**Medical Image Fusion Driven by Implicit-Forward Diffusion and Time-aware Joint Optimization (NeurIPS 2026)**
 
 This repository contains the official implementation of **ResFusion: Medical Image Fusion Driven by Implicit-Forward Diffusion and Time-aware Joint Optimization**, presented at **NeurIPS 2026**.
 
 ResFusion brings registration and medical image fusion into a joint framework, combining **implicit-forward diffusion**, **time-aware registration**, and **progressive alignment**.
+
+<p align="center">
+  <img src="assets/resfusion_process_v2.gif" alt="Initial noise, network input, fusion denoising, and denoised result" width="420">
+</p>
 
 ## Method
 
