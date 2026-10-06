@@ -1,13 +1,10 @@
 <div align="center">
 
-<img src="assets/resfusion_logo.png" alt="ResFusion logo" width="64" height="64" align="left">
-
-<h2>Medical Image Fusion Driven by Implicit-Forward Diffusion<br>and Time-aware Joint Optimization</h2>
-<br clear="left">
+<h2><img src="assets/resfusion_logo.png" alt="ResFusion logo" width="58" height="58" align="middle">&nbsp; Medical Image Fusion Driven by Implicit-Forward Diffusion<br>and Time-aware Joint Optimization</h2>
 
 <p><strong>ResFusion &nbsp; | &nbsp; NeurIPS 2026</strong></p>
 
-<p><img src="assets/resfusion_process_v2.gif" alt="Initial noise, network input, fusion denoising, and denoised result" width="420"></p>
+<p><img src="assets/resfusion_process_v2.gif" alt="Initial noise, network input, fusion denoising, and denoised result" width="600"></p>
 
 [![GitHub](https://img.shields.io/badge/GitHub-ResFusion-181717?logo=github&logoColor=white)](https://github.com/medcx/ResFusion)
 [![Checkpoint](https://img.shields.io/badge/Checkpoint-BraTs-4285F4?logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1i_Qt28X4c7QUhAvQKeSkB8eOJGSOIiGa/view?usp=sharing)
