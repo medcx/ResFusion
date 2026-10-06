@@ -1,8 +1,8 @@
 <div align="center">
 
-<h2 align="left"><img src="assets/resfusion_logo.png" alt="ResFusion logo" width="58" height="58" align="left">&nbsp; Medical Image Fusion Driven by Implicit-Forward Diffusion<br>and Time-aware Joint Optimization</h2>
+<h2 align="center">Medical Image Fusion Driven by Implicit-Forward Diffusion<br>and Time-aware Joint Optimization</h2>
 
-<p><strong>ResFusion &nbsp; | &nbsp; NeurIPS 2026</strong></p>
+<p><img src="assets/resfusion_logo.png" alt="ResFusion logo" width="40" height="40" align="middle"> &nbsp; <strong>ResFusion &nbsp; | &nbsp; NeurIPS 2026</strong></p>
 
 <p><img src="assets/resfusion_process_v2.gif" alt="Initial noise, network input, fusion denoising, and denoised result" width="420"></p>
 
