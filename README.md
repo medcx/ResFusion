@@ -1,22 +1,22 @@
-<div align="center">
+# ResFusion
 
-<p align="center"><img src="assets/resfusion_logo.png" alt="ResFusion logo" width="600"></p>
+<p align="center">
+  <img src="assets/resfusion_logo.png" alt="ResFusion" width="600">
+</p>
 
-<h2 align="center">Medical Image Fusion Driven by Implicit-Forward Diffusion<br>and Time-aware Joint Optimization</h2>
-
-<p><strong>ResFusion &nbsp; | &nbsp; NeurIPS 2026</strong></p>
-
-<p><img src="assets/resfusion_process_v2.gif" alt="Initial noise, network input, fusion denoising, and denoised result" width="420" align="middle"></p>
-
-[![GitHub](https://img.shields.io/badge/GitHub-ResFusion-181717?logo=github&logoColor=white)](https://github.com/medcx/ResFusion)
-[![Checkpoint](https://img.shields.io/badge/Checkpoint-BraTs-4285F4?logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1i_Qt28X4c7QUhAvQKeSkB8eOJGSOIiGa/view?usp=sharing)
-[![Stars](https://img.shields.io/github/stars/medcx/ResFusion?style=social)](https://github.com/medcx/ResFusion)
-
-[Overview](#overview) · [Method](#method) · [Quick Start](#quick-start) · [Results](#results) · [Citation](#citation)
-
-</div>
+<p align="center">
+  💻 <a href="https://github.com/medcx/ResFusion">GitHub</a> &nbsp; | &nbsp;
+  📦 <a href="https://drive.google.com/file/d/1i_Qt28X4c7QUhAvQKeSkB8eOJGSOIiGa/view?usp=sharing">ResFusion_BraTs</a> &nbsp; | &nbsp;
+  🔬 <a href="#method">Method</a> &nbsp; | &nbsp;
+  🚀 <a href="#quick-start">Quick Start</a> &nbsp; | &nbsp;
+  📊 <a href="#results">Results</a> &nbsp; | &nbsp;
+  📖 <a href="#citation">Citation</a>
+</p>
 
 ---
+
+**Medical Image Fusion Driven by Implicit-Forward Diffusion and Time-aware Joint Optimization**  
+**NeurIPS 2026**
 
 ## Overview
 
@@ -25,6 +25,11 @@ This repository contains the official implementation of **ResFusion: Medical Ima
 ResFusion brings registration and medical image fusion into a joint framework, combining **implicit-forward diffusion**, **time-aware registration**, and **progressive alignment**.
 
 ## Method
+
+<p align="center">
+  <img src="assets/resfusion_process_v2.gif" alt="Initial noise, network input, fusion denoising, and denoised result" width="420">
+</p>
+
 
 <p align="center">
   <a href="assets/method.png"><img src="assets/method.png" alt="method" width="100%"></a>
