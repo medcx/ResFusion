@@ -58,15 +58,10 @@ The demo loads data from `MyDatasets/Demo`, as configured in `configs/demo.yaml`
 python test_demo.py
 ```
 
-Results are saved to **`demo_results/ResFusion`** by default. To change the output directory or batch size:
-
-```bash
-python test_demo.py --out_path demo_results --bs 32
-```
 
 ### 3. Train on BraTs
 
-Update `data.train.params.dataset_path` and `data.val.params.dataset_path` in `configs/fusion_brats.yaml` to point to your local dataset. The configuration uses `t2w`, `t2f`, and `t2w_warp` as the source, target, and warped modalities.
+Update `data.train.params.dataset_path` and `data.val.params.dataset_path` in `configs/fusion_brats.yaml` to point to your local dataset. 
 
 ```bash
 python main.py --cfg_path configs/fusion_brats.yaml --save_dir results/brats
