@@ -102,7 +102,7 @@ Additional examples using the same comparison methods. Red boxes indicate the re
 
 ## Citation
 
-If you find ResFusion useful in your research, please cite [**Medical Image Fusion Driven by Implicit-Forward Diffusion and Time-aware Joint Optimization (NeurIPS 2026)**](https://neurips.cc/virtual/2026/loc/sydney/poster/152030).
+If you find ResFusion useful in your research, please cite [**Medical Image Fusion Driven by Implicit-Forward Diffusion and Time-aware Joint Optimization (NeurIPS 2026)**](https://openreview.net/forum?id=W44dmCYl89).
 
 ```
 @inproceedings{
