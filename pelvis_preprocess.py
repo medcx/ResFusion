@@ -7,7 +7,7 @@ from concurrent.futures import ThreadPoolExecutor
 from sklearn.model_selection import train_test_split
 
 
-# ------------------------- 工具函数 -------------------------
+# ------------------------- Auxiliary functions -------------------------
 def resample_to_new_spacing(image, new_spacing=(1.0, 1.0, 1.0)):
     original_size = image.GetSize()
     original_spacing = image.GetSpacing()
@@ -59,7 +59,7 @@ def pad_and_center_crop(ct_img, mr_img, target_size):
 
     return ct_crop, mr_crop
 
-# ------------------------- 生成单个患者切片 -------------------------
+# ------------------------- Generate slices for an individual patient -------------------------
 def generate_slices(ct_path, mr_path, patient_id, target_size=256, slice_size=None, new_spacing=(1.0,1.0,2.5), discard_slices=5):
     img_ct = normalize_image(sitk.ReadImage(ct_path))
     img_ct = resample_to_new_spacing(img_ct, new_spacing)
@@ -71,7 +71,7 @@ def generate_slices(ct_path, mr_path, patient_id, target_size=256, slice_size=No
 
     assert arr_ct.shape == arr_mr.shape
 
-    # 去除黑边
+    # Remove black borders
     arr_mr_crop, crop_box = crop_black_border_3d(arr_mr)
     z_min, z_max, x_min, x_max, y_min, y_max = crop_box
     arr_ct_crop = arr_ct[z_min:z_max, x_min:x_max, y_min:y_max]
@@ -81,7 +81,7 @@ def generate_slices(ct_path, mr_path, patient_id, target_size=256, slice_size=No
 
     Z = arr_mr.shape[0]
 
-    # ---------------------- 去掉前后 discard_slices 张 ----------------------
+    # ---------------------- Remove discard_slices before and after ----------------------
     start_slice = discard_slices
     end_slice = Z - discard_slices
 
@@ -100,7 +100,7 @@ def generate_slices(ct_path, mr_path, patient_id, target_size=256, slice_size=No
         slices.append((slice_ct, slice_mr, f"{patient_id}_{z}.png"))
 
     return slices
-# ------------------------- 保存切片 -------------------------
+# ------------------------- save slices -------------------------
 def save_slices(slices, output_dir_ct, output_dir_mr):
     os.makedirs(output_dir_ct, exist_ok=True)
     os.makedirs(output_dir_mr, exist_ok=True)
@@ -108,7 +108,7 @@ def save_slices(slices, output_dir_ct, output_dir_mr):
         Image.fromarray(ct_slice).save(os.path.join(output_dir_ct, fname))
         Image.fromarray(mr_slice).save(os.path.join(output_dir_mr, fname))
 
-# ------------------------- 主流程 -------------------------
+# ------------------------- main process -------------------------
 if __name__ == "__main__":
     import random
 
@@ -118,15 +118,15 @@ if __name__ == "__main__":
     num_workers = 4
     test_size = 0.2
 
-    input_path = "/data1/XJH/Dataset/SynthRAD2023/pelvis"
-    output_path = "/data1/XJH/Imgtrans/data/Havard/MyDatasets/pelvis"
+    input_path = ""
+    output_path = ""
 
     patients = sorted([p for p in os.listdir(input_path) if p.startswith("1P")])
     print(f"Total patients: {len(patients)}")
 
     all_slices = []
 
-    # ------------------------- 多线程生成所有切片 -------------------------
+    # ------------------------- Generate all slices using multithreading -------------------------
     def task(patient_id):
         root = os.path.join(input_path, patient_id)
         ct_path = os.path.join(root, "ct.nii.gz")
@@ -142,11 +142,11 @@ if __name__ == "__main__":
 
     print(f"Total slices generated: {len(all_slices)}")
 
-    # ------------------------- 切片级别划分 train/test -------------------------
+    # ------------------------- Train/test split at the slice level -------------------------
     train_slices, test_slices = train_test_split(all_slices, test_size=test_size, random_state=42)
     print(f"Train slices: {len(train_slices)}, Test slices: {len(test_slices)}")
 
-    # ------------------------- 保存 -------------------------
+    # ------------------------- save -------------------------
     train_ct_dir = os.path.join(output_path, "train", "CT")
     train_mr_dir = os.path.join(output_path, "train", "MRI")
     test_ct_dir = os.path.join(output_path, "test", "CT")
