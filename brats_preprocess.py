@@ -6,20 +6,19 @@ from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor
 
-# -------------------- 配置 --------------------
-data_dir = "/data/XJH/data/Brain/BraTS/MICCAI_BraTS2021_TrainingData/"
-output_dir = "/data1/XJH/Imgtrans/data/Havard/MyDatasets/BraTs"
+# -------------------- setting --------------------
+data_dir = ""
+output_dir = ""
 selected_modalities = ["t1n", "t2w"]
 mask_name = "mask"
 
-mid_slice_range = 5      # 中间切片范围
-final_size = 192         # 填充或裁剪到固定尺寸
-n_workers = 8            # 并行线程数
+mid_slice_range = 5      
+final_size = 192         
+n_workers = 8            
 # --------------------------------------------
 
 os.makedirs(output_dir, exist_ok=True)
 
-# -------------------- 辅助函数 --------------------
 def load_sitk_image(path):
     return sitk.ReadImage(path)
 
@@ -49,7 +48,7 @@ def process_patient(patient_folder):
     if seg_path is None or t2_path is None:
         return []
 
-    # 读取 T2 并裁剪
+    # reading T2 and crop
     t2_data = sitk.GetArrayFromImage(load_sitk_image(t2_path))
     coords = np.argwhere(t2_data > 0)
     if coords.size == 0:
@@ -57,10 +56,10 @@ def process_patient(patient_folder):
     z0, y0, x0 = coords.min(axis=0)
     z1, y1, x1 = coords.max(axis=0) + 1
 
-    # 裁剪 seg
+    # crop seg
     seg_data = sitk.GetArrayFromImage(load_sitk_image(seg_path))[z0:z1, y0:y1, x0:x1]
 
-    # 裁剪其他模态并归一化
+    # crop other modalities
     modality_data_dict = {}
     for modality in selected_modalities:
         modality_path = patient_files.get(modality)
@@ -70,7 +69,7 @@ def process_patient(patient_folder):
         img_data_norm = ((img_data - img_data.min()) / (img_data.ptp() + 1e-5) * 255).astype(np.uint8)
         modality_data_dict[modality] = img_data_norm
 
-    # 提取中间切片
+    # Extract the middle slice
     z_mid = seg_data.shape[0] // 2
     start_idx = max(0, z_mid - mid_slice_range)
     end_idx = min(seg_data.shape[0], z_mid + mid_slice_range + 1)
@@ -87,7 +86,7 @@ def process_patient(patient_folder):
             })
     return patient_slices
 
-# -------------------- 并行处理患者 --------------------
+# -------------------- Process patients in parallel --------------------
 all_slices = []
 with ThreadPoolExecutor(max_workers=n_workers) as executor:
     futures = [executor.submit(process_patient, pf) for pf in os.listdir(data_dir)]
@@ -95,22 +94,22 @@ with ThreadPoolExecutor(max_workers=n_workers) as executor:
         result = f.result()
         all_slices.extend(result)
 
-# -------------------- 打乱划分 --------------------
+# -------------------- Shuffle and split the dataset --------------------
 np.random.seed(42)
 np.random.shuffle(all_slices)
 train_slices, test_slices = train_test_split(all_slices, test_size=0.2, random_state=42)
 
-# -------------------- 批量写入 PNG（单线程） --------------------
+# -------------------- save --------------------
 def save_slice_png(item, subset):
     patient_folder = item["patient"]
     slice_idx = item["slice_idx"]
     seg_slice = pad_or_crop(item["seg"], final_size)
-    # 保存 mask
+    # save mask
     mask_dir = os.path.join(output_dir, subset, mask_name)
     os.makedirs(mask_dir, exist_ok=True)
     mask_path = os.path.join(mask_dir, f"{patient_folder}_{slice_idx:03d}.png")
     Image.fromarray(((seg_slice / 4) * 255).astype(np.uint8)).save(mask_path)
-    # 保存模态
+    # save modalities
     # for modality, img_slice in item["modalities"].items():
     #     img_slice = pad_or_crop(img_slice, final_size)
     #     save_dir = os.path.join(output_dir, subset, modality)
