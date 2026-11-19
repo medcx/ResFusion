@@ -61,13 +61,30 @@ The demo loads data from `MyDatasets/Demo`, as configured in `configs/demo.yaml`
 python test_demo.py
 ```
 
-### 3. Train on BraTs
+### 3. Dataset Preparation and Training
 
-Update `data.train.params.dataset_path` and `data.val.params.dataset_path` in `configs/fusion_brats.yaml` to point to your local dataset. 
+Download the datasets from their official sources:
+
+- [BraTS 2023](https://www.synapse.org/Synapse:syn51156910)
+- [SynthRAD2023 (Pelvis)](https://zenodo.org/records/7260705)
+- [TCIA Prostate](https://www.cancerimagingarchive.net/collection/prostate-fused-mri-pathology/)
+- [Harvard Whole Brain Atlas](https://www.med.harvard.edu/aanlib/)
+
+#### Example: Train on BraTS
+
+Set `data_dir` and `output_dir` in `brats_preprocess.py` to your local paths. For T2-weighted and T2-FLAIR fusion, set `selected_modalities = ["t2w", "t2f"]`, then run:
+
+```bash
+python brats_preprocess.py
+```
+
+Update `data.train.params.dataset_path` and `data.val.params.dataset_path` in `configs/fusion_brats.yaml` to point to the corresponding preprocessed dataset splits. Start training with:
 
 ```bash
 python main.py --cfg_path configs/fusion_brats.yaml --save_dir results/brats
 ```
+
+For details of the dataset preprocessing pipelines, see [brats_preprocess.py](https://github.com/medcx/ResFusion/blob/main/brats_preprocess.py) and [pelvis_preprocess.py](https://github.com/medcx/ResFusion/blob/main/pelvis_preprocess.py).
 
 ## Results
 
