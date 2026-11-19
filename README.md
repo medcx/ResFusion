@@ -65,7 +65,7 @@ python test_demo.py
 
 Download the datasets from their official sources:
 
-- [BraTS 2023](https://www.synapse.org/Synapse:syn51156910)
+- [BraTS 2023](https://www.synapse.org/Synapse:syn51156910).
 - [SynthRAD2023 (Pelvis)](https://zenodo.org/records/7260705)
 - [TCIA Prostate](https://www.cancerimagingarchive.net/collection/prostate-fused-mri-pathology/)
 - [Harvard Whole Brain Atlas](https://www.med.harvard.edu/aanlib/)
@@ -133,5 +133,7 @@ url={https://openreview.net/forum?id=W44dmCYl89}
 ```
 
 ## Acknowledgments
+
+We thank the authors of [ResShift](https://github.com/zsyOAOA/ResShift).
 
 Thank you for your interest in ResFusion. A star on [GitHub](https://github.com/medcx/ResFusion) is appreciated!
