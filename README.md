@@ -65,7 +65,7 @@ python test_demo.py
 
 Download the datasets from their official sources:
 
-- [BraTS 2023]((https://www.synapse.org/Synapse:syn64952532))
+- [BraTS 2023](https://www.synapse.org/Synapse:syn64952532)
 - [SynthRAD2023 (Pelvis)](https://zenodo.org/records/7260705)
 - [TCIA Prostate](https://www.cancerimagingarchive.net/collection/prostate-fused-mri-pathology/)
 - [Harvard Whole Brain Atlas](https://www.med.harvard.edu/aanlib/)
