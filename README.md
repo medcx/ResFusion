@@ -102,7 +102,18 @@ Additional examples using the same comparison methods. Red boxes indicate the re
 
 ## Citation
 
-If you find ResFusion useful in your research, please cite **Medical Image Fusion Driven by Implicit-Forward Diffusion and Time-aware Joint Optimization (NeurIPS 2026)**.
+If you find ResFusion useful in your research, please cite [**Medical Image Fusion Driven by Implicit-Forward Diffusion and Time-aware Joint Optimization (NeurIPS 2026)**](https://neurips.cc/virtual/2026/loc/sydney/poster/152030).
+
+```
+@inproceedings{
+xu2026resfusion,
+title={ResFusion: Medical Image Fusion Driven by Implicit-Forward Diffusion and Time-aware Joint Optimization},
+author={Jiahua Xu and Dawei Zhou and Zhengkun Yu and Lei Hu and Lecong Xiong and Zaiyi Liu and Nannan Wang and Xinbo Gao},
+booktitle={The Fortieth Annual Conference on Neural Information Processing Systems},
+year={2026},
+url={https://openreview.net/forum?id=W44dmCYl89}
+}
+```
 
 ## Acknowledgments
 
